@@ -6,50 +6,68 @@
 #define CHARSET "cspdiuxX"
 
 void ft_printf(const char *source, ...);
-int get_n_args(const char *s);
-char *format_specifiers(const char *s, int size);
 int is_charset(char c, char *charset);
+void ft_print_if(va_list *dest, char c);
 
-int main()
+int is_charset(char c, char *charset)
 {
-    ft_printf("Hello%s %d %c %i %%\n", " world", 5, 'c',45);
+    while (*charset)
+    {
+        if (c == *charset)
+            return (1);
+        charset++;
+    }
+    return (0);
 }
 
 void ft_printf(const char *source, ...)
 {
     va_list ptr;
     va_start(ptr, source);
-    int n_args = get_n_args(source);
-    int index = 0;
-    // char *f_specifiers = format_specifiers(source, n_args);
-
     while (*source)
     {
         if (*source == '%' && *(source + 1))
         {
             source++;
             if (is_charset(*source, CHARSET))
+                ft_print_if(&ptr, *source);
+            else
             {
-                if(*source == 'd')
-                {
-                    printf("%d",va_arg(ptr, int));
-                } else if (*source == 'c')
-                {
-                     printf("%c",va_arg(ptr, int));
-                } else if (*source == 's')
-                {
-                    printf("%s",va_arg(ptr, char*));
-                } else if (*source == 'i') 
-                {
-                    printf("%i",va_arg(ptr, int));
-                }
-            } else {
                 source--;
-                printf("%c",*source);
+                printf("%c", *source);
             }
-        } else 
+        }
+        else
             printf("%c", *source);
         source++;
     }
     va_end(ptr);
+}
+
+void ft_print_if(va_list *dest, char c)
+{
+    if (c == 'd')
+    {
+        printf("%d", va_arg(*dest, int));
+    }
+    else if (c == 'c')
+    {
+        printf("%c", va_arg(*dest, int));
+    }
+    else if (c == 's')
+    {
+        printf("%s", va_arg(*dest, char *));
+    }
+    else if (c == 'i')
+    {
+        printf("%i", va_arg(*dest, int));
+    }
+    else if (c == 'p')
+    {
+        printf("%p", va_arg(*dest, void *));
+    }
+    else if (c == 'x')
+    {
+        printf("%x", va_arg(*dest, int));
+    }
 }
