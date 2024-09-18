@@ -4,19 +4,9 @@ This Node.js script is designed to run tests, check for required files, and comp
 
 ## Table of Contents
 
-- [Testing Script](#testing-script)
-  - [Table of Contents](#table-of-contents)
-  - [Getting Started](#getting-started)
-  - [Script Overview](#script-overview)
-  - [Functions and Arguments](#functions-and-arguments)
-    - [Command-Line Arguments](#command-line-arguments)
-    - [Helper Functions](#helper-functions)
-  - [Error Handling](#error-handling)
-    - [Undefined Reference Errors](#undefined-reference-errors)
-
 ## Getting Started
 
-1. **Clone the Repository:**
+1. **Install using bash/zhs:**
 
     ```bash
     cd ~
@@ -31,7 +21,7 @@ This Node.js script is designed to run tests, check for required files, and comp
 
 4. **Usage:**
 
-    - **Test a Function:**
+    - **Test ft_printf:**
 
         Navigate to the directory containing your libs and run:
 
@@ -39,7 +29,7 @@ This Node.js script is designed to run tests, check for required files, and comp
         testpf -l <lname>
         ```
 
-        Replace `<lname>` with the name of the library.
+        Replace `<lname>` with the name of the library / may be 1 or more libs make sure to include them all.
 
     
     
