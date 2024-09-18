@@ -1,6 +1,10 @@
 # Prerequisites
 *.d
 
+/learning
+/dd
+/src
+
 # Object files
 *.o
 *.ko
