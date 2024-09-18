@@ -22,17 +22,8 @@ This Node.js script is designed to run tests, check for required files, and comp
     cd ~
     git clone https://github.com/jawadelyousfi17/ft_printf.git
     cd ft_printf
+    ./setup.sh
     ```
-
-2. **Install Dependencies:**
-
-    Run the installation script based on your access:
-
-    - **If you don't have root access**, run:
-
-      ```bash
-      ./setup.sh
-      ```
 
 3. **Ensure Node.js and npm Are Installed:**
 
